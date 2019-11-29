@@ -1,0 +1,6 @@
+name=SqlServerJdbcSinkConnector
+connector.class=io.confluent.connect.jdbc.JdbcSinkConnector
+topics=<topics>
+tasks.max=1
+connection.url=jdbc:sqlserver://<ip>:1433;databaseName=<dbname>;user=<dbuser>;password=<dbpass>
+auto.create=true

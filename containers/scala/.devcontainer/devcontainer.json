@@ -1,0 +1,52 @@
+// See https://aka.ms/vscode-remote/containers for the
+// documentation about the devcontainer.json format
+{
+	"name": "scala",
+	"image": "<domain>/scala",
+	"settings":{
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "editor.fontFamily": "Fira Code",
+                "editor.fontLigatures": true,
+                "java.home": "/docker-java-home",
+                "metals.javaHome": "/docker-java-home"
+	},
+        "runArgs": [ 
+                "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro", 
+                "-v", "${env:HOME}${env:USERPROFILE}/.sbt:/root/.sbt-localhost:ro", 
+                "-v", "${env:HOME}${env:USERPROFILE}/.gitconfig:/root/.git-localhost:ro"
+        ],
+	"extensions": [
+        // General Extensions
+        "aaron-bond.better-comments",
+        "coenraads.bracket-pair-colorizer-2",
+        "alefragnani.bookmarks",
+        "mizyind.darkpp-regular",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "sirtori.indenticator",
+        "nickdemayo.vscode-json-editor",
+        "yzhang.markdown-all-in-one",
+        "pkief.material-icon-theme",
+        "equinusocio.vsc-material-theme",
+        "ibm.output-colorizer",
+        "ryu1kn.partial-diff",
+        "redhat.vscode-yaml",
+        "wmaurer.change-case",
+        "streetsidesoftware.code-spell-checker",
+        "kkapsner.duplicateselection",
+        "letrieu.expand-region",
+        "geddski.macros",
+        "bigous.vscode-multi-line-tricks",
+        "philsinatra.nested-comments",
+        "christian-kohler.path-intellisense",
+        "alefragnani.project-manager",
+        //Language Specific Extensions
+        "scalameta.metals",
+        "scala-lang.scala"
+
+
+
+        ],
+      
+        "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && mkdir -p ~/.credentials && cp -r ~/.credentials-localhost/ ~/.credentials &&  cp -r ~/.git-localhost/.gitconfig ~/.gitconfig"
+}

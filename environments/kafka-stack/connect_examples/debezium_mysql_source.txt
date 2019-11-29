@@ -1,0 +1,14 @@
+name=DebeziumMySqlConnectorSource
+connector.class=io.debezium.connector.mysql.MySqlConnector
+tasks.max=1
+database.hostname=<ip>
+database.port=3306
+database.user=<user>
+database.password=<password>
+database.server.name=<topicprefix>
+database.ssl.mode=disabled
+database.jdbc.driver=com.mysql.cj.jdbc.Driver
+database.history.kafka.bootstrap.servers=kafka1:19092
+database.history.kafka.topic=dbhistory.<topicprefix>
+table.whitelist=<tables>
+include.schema.changes=true
