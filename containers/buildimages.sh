@@ -28,7 +28,7 @@ build(){
    then
       echo "Copying dev container image"
       mkdir -p $DEVPATH
-      rm rf $DEVPATH/.devcontainer
+      rm -rf $DEVPATH/.devcontainer
       cp -rf ../.devcontainer $DEVPATH/.devcontainer
       chown -R $USER:$GROUP $DEVPATH
       chmod -R 755 $DEVPATH
@@ -99,19 +99,22 @@ then
       echo "- clojure"
       echo "- elixir"
       echo "- elm"
+      echo "- flutter"
       echo "- fsharp"
       echo "- go"
       echo "- haskell"
       echo "- haxe"
       echo "- idris"
+      echo "- ionic"
       echo "- kotlin"
       echo "- ocaml"
+      echo "- phoenix"
       echo "- purescript"
       echo "- python3"
       echo "- r-lang"
+      echo "- reactnative"
       echo "- rust"
       echo "- scala"
-      echo "- scala-bloop"
       echo "- v-lang"
       echo "======================================================================"
       echo "sh buildimages <languagetype> <version> <domain> <publish> <usedevcontainer> <devpath>"
@@ -156,6 +159,10 @@ case $IMAGETYPE in
     build nodejs
     build elm
    ;;
+"flutter")
+    buildnodc android
+    build flutter
+   ;;
 "fsharp")
    build fsharp
    ;;
@@ -172,6 +179,10 @@ case $IMAGETYPE in
 "idris")
      build idris
    ;;
+"ionic")
+    buildnodc android
+    build ionic
+   ;;
 "kotlin")
    build kotlin
    ;;
@@ -181,12 +192,19 @@ case $IMAGETYPE in
 "ocaml")
    build ocaml
    ;;
+"phoenix")
+   build elixir
+   build phoenix
+   ;;
 "purescript")
    build nodejs
    build purescript
    ;;
 "python3")
    build python3
+   ;;
+"reactnative")
+    build reactnative
    ;;
 "r-lang")
    build r-lang
@@ -202,7 +220,7 @@ case $IMAGETYPE in
    build v-lang
    ;;
 "all")
-   build python
+   build python3
    build nodejs
    build haskell
    build clisp
@@ -213,10 +231,12 @@ case $IMAGETYPE in
    build go
    build haxe
    build idris
+   build ionic
    build kotlin
    build ocaml
    build purescript
    build python3
+   build reactnative
    build r-lang
    build rust
    build scala

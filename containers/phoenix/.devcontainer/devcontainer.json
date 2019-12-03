@@ -1,14 +1,12 @@
 // See https://aka.ms/vscode-remote/containers for the
 // documentation about the devcontainer.json format
 {
-	"name": "scala",
-	"image": "<domain>/scala",
+	"name": "phoenix",
+	"image": "<domain>/phoenix",
 	"settings":{
                 "terminal.integrated.shell.linux": "/bin/bash",
                 "editor.fontFamily": "Fira Code",
-                "editor.fontLigatures": true,
-                "java.home": "/docker-java-home",
-                "metals.javaHome": "/docker-java-home"
+                "editor.fontLigatures": true
 	},
         "runArgs": [ 
                 "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro", 
@@ -41,12 +39,12 @@
         "christian-kohler.path-intellisense",
         "alefragnani.project-manager",
         //Language Specific Extensions
-        "scalameta.metals",
-        "scala-lang.scala"
+        "jakebecker.elixir-ls",
+        "pgourlain.erlang",
+        "pedromsluz.vscode-phoenix"
 
 
 
-        ],
-      
+	],      
         "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && mkdir -p ~/.credentials && cp -r ~/.credentials-localhost/ ~/.credentials &&  cp -r ~/.git-localhost/.gitconfig ~/.gitconfig"
 }

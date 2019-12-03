@@ -1,8 +1,6 @@
-// See https://aka.ms/vscode-remote/containers for the
-// documentation about the devcontainer.json format
 {
-	"name": "nodejs",
-	"image": "<domain>/nodejs",
+	"name": "reactnative",
+	"image": "<domain>/reactnative",
     "settings":{
         "terminal.integrated.shell.linux": "/bin/bash",
         "editor.fontFamily": "Fira Code",
@@ -39,10 +37,8 @@
     "christian-kohler.path-intellisense",
     "alefragnani.project-manager",
     //Language Specific Extensions
-    "ickytonline.gatsby-extension-pack",
-    "angular.ng-template",
-    "equimper.react-native-react-redux",
-    "rbbit.typescript-hero"
+    "msjsdiag.vscode-react-native",
+    "dsznajder.es7-react-js-snippets"
 
 
 

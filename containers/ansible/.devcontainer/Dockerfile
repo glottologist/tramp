@@ -1,6 +1,8 @@
 FROM <domain>/development-centos:<version>
 ADD README.md .
 
+RUN  yum -y install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker gcc-c++ make
+
 # Install newer version of git than the package manager provides
 RUN mkdir -p /usr/local/source \
     && cd /usr/local/source \
@@ -19,7 +21,6 @@ RUN yum -y install python3 \
 
 # Install NodeJS for YAML language server
 RUN  curl -sL https://rpm.nodesource.com/setup_10.x | bash - \
-     && yum -y install gcc-c++ make \
      && curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo \
      && yum -y install yarn \
      && yum -y install nodejs \
